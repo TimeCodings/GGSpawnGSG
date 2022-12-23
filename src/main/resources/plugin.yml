@@ -1,0 +1,11 @@
+name: GGSpawnGSG
+version: 1.4
+main: dev.timecoding.ggspawngsg.GGSpawnGSG
+website: timecoding.de
+
+commands:
+  spawnplot:
+    aliases:
+      - sp
+      - ggspawngsg
+    description: Der Hauptcommand für das GGSpawnGSG Plugin!

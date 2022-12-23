@@ -1,3 +1,7 @@
+![80177](https://user-images.githubusercontent.com/94994775/209409673-eeb9e637-36cb-4b7e-9524-edd234aa15e5.jpg)
+
+Spigot-Seite: https://www.spigotmc.org/resources/griefergames-spawnplot-spawngs-plugin-100-einstellbar-api.80177/
+
 Hallo ;)
 
 ich heiße Diego und habe euch ein kleines aber feines Plugin programmiert, mit welchem ihr wie auf GrieferGames auch euren Spielern SpawnGS (se)/SpawnPlot (s) Gutscheine geben könnt, welche sie auf SpawnPlots (mit Command auswählbar) einlösen können. Außerdem könnt ihr alle Nachrichten, Permissions und mehr umstellen! Zudem gibt es ein API für Developer. Dieses Plugin ist kostenlos, was aber nicht heißt das der Support komplett wegfällt. (Bei Fehlern meldet euch auf Discord: TimeCode#0001)

@@ -1,4 +1,5 @@
 ![80177](https://user-images.githubusercontent.com/94994775/209410008-3c452916-95b0-41c7-ac99-597154a62a90.png)
+[![CodeFactor](https://www.codefactor.io/repository/github/timecodings/ggspawngsg/badge)]
 
 
 **Spigot-Seite:** https://www.spigotmc.org/resources/griefergames-spawnplot-spawngs-plugin-100-einstellbar-api.80177/

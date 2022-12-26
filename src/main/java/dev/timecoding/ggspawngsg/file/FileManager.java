@@ -46,6 +46,16 @@ public class FileManager {
     cfg.addDefault("Prefix", "&f[&bServer&f]");
     cfg.addDefault("TwoClickRedeem", Boolean.valueOf(true));
     cfg.addDefault("SetOwnerOnAddPlot", Boolean.valueOf(true));
+    cfg.addDefault("Walls.OnSpawnPlotAdd.Enabled", false);
+    cfg.addDefault("Walls.OnSpawnPlotRemove.Enabled", false);
+    cfg.addDefault("Walls.OnSpawnPlotClaim.Enabled", false);
+    PlotWrapper plotWrapper = plugininstance.getPlotWrapper();
+      cfg.addDefault("Walls.OnSpawnPlotAdd.Border", "IRON_BLOCK");
+      cfg.addDefault("Walls.OnSpawnPlotRemove.Border", "SANDSTONE");
+      cfg.addDefault("Walls.OnSpawnPlotClaim.Border", "GOLD_BLOCK");
+      cfg.addDefault("Walls.OnSpawnPlotAdd.Wall", "IRON_BLOCK");
+      cfg.addDefault("Walls.OnSpawnPlotRemove.Wall", "SANDSTONE");
+      cfg.addDefault("Walls.OnSpawnPlotClaim.Wall", "GOLD_BLOCK");
     addPermission("Admin", "spawnplot.admin");
     addPermission("Help", "spawnplot.openhelp");
     addPermission("Add", "spawnplot.add");
@@ -96,8 +106,7 @@ public class FileManager {
     lore.add("§aKlicke zum einlösen!");
     lore.add("§cChange this in the item.yml");
     lore.add("§cÄndere dies in der item.yml");
-    PlotWrapper plotWrapper = plugininstance.getPlotWrapper();
-    if(plotWrapper.getPlotSquaredVersion().equals(PSVersion.V3)){
+    if(plotWrapper.getPlotSquaredVersion().equals(PSVersion.V3) || plotWrapper.getPlotSquaredVersion().equals(PSVersion.V4)){
       item.addDefault("Material", "SAPLING");
       item.addDefault("SubID", Integer.valueOf(5));
     }else {

@@ -1,6 +1,7 @@
 package dev.timecoding.ggspawngsg.api.reflections;
 
 import dev.timecoding.ggspawngsg.enums.PSVersion;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -73,6 +74,34 @@ public class PSController {
                 return new PS6(p).getApi();
         }
         return null;
+    }
+
+    public void setBorder(Player p, Material material){
+        switch(version){
+            case V3:
+                new PS3(p).setBorder(material);
+                break;
+            case V4:
+                new PS4(p).setBorder(material);
+                break;
+            case V6:
+                new PS6(p).setBorder(material);
+                break;
+        }
+    }
+
+    public void setWall(Player p, Material material){
+        switch(version){
+            case V3:
+                new PS3(p).setWall(material);
+                break;
+            case V4:
+                new PS4(p).setWall(material);
+                break;
+            case V6:
+                new PS6(p).setWall(material);
+                break;
+        }
     }
 
 }

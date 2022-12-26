@@ -3,6 +3,7 @@ package dev.timecoding.ggspawngsg.api.reflections;
 import com.github.intellectualsites.plotsquared.api.PlotAPI;
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -25,6 +26,20 @@ public class PS4 {
             return getPlot().getId().toString();
         }
         return "";
+    }
+
+    public void setBorder(Material material){
+        if(playerOnPlot()){
+            Plot p = getPlot();
+            p.setComponent("border", material.name());
+        }
+    }
+
+    public void setWall(Material material){
+        if(playerOnPlot()){
+            Plot p = getPlot();
+            p.setComponent("wall", material.name());
+        }
     }
 
     public void setPlotOwner(String uuid){

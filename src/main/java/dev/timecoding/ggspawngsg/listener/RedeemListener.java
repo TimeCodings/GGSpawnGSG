@@ -6,6 +6,8 @@ import dev.timecoding.ggspawngsg.GGSpawnGSG;
 import dev.timecoding.ggspawngsg.api.PlotWrapper;
 import dev.timecoding.ggspawngsg.api.UpdateChecker;
 import dev.timecoding.ggspawngsg.api.reflections.PSController;
+import dev.timecoding.ggspawngsg.events.PlayerAddSpawnPlotEvent;
+import dev.timecoding.ggspawngsg.events.PlayerGiveSpawnPlotEvent;
 import dev.timecoding.ggspawngsg.events.PlayerRedeemSpawnPlotEvent;
 import dev.timecoding.ggspawngsg.file.FileManager;
 import org.bukkit.Bukkit;
@@ -177,6 +179,44 @@ public class RedeemListener implements Listener {
       e.getPlayer().removeMetadata("Redeem", (Plugin)this.pl); 
     if (e.getPlayer().hasMetadata("RedeemItem"))
       e.getPlayer().removeMetadata("RedeemItem", (Plugin)this.pl); 
+  }
+
+  @EventHandler
+  public void onPlayerAddSpawnPlot(PlayerAddSpawnPlotEvent e){
+    if(!e.isCancelled()){
+      Player p = e.getPlayer();
+      PSController controller = pl.getPlotWrapper().getController(p);
+      FileManager fileManager = new FileManager();
+      if(FileManager.cfg.getBoolean("Walls.OnSpawnPlotAdd.Enabled")){
+        String border = FileManager.cfg.getString("Walls.OnSpawnPlotAdd.Border");
+        String wall = FileManager.cfg.getString("Walls.OnSpawnPlotAdd.Wall");
+        if(Material.valueOf(border) != null){
+          controller.setBorder(p, Material.valueOf(border));
+        }
+        if(Material.valueOf(wall) != null){
+          controller.setWall(p, Material.valueOf(wall));
+        }
+      }
+    }
+  }
+
+  @EventHandler
+  public void onPlayerRemoveSpawnPlot(PlayerAddSpawnPlotEvent e){
+    if(!e.isCancelled()){
+      Player p = e.getPlayer();
+      PSController controller = pl.getPlotWrapper().getController(p);
+      FileManager fileManager = new FileManager();
+      if(FileManager.cfg.getBoolean("Walls.OnSpawnPlotRemove.Enabled")){
+        String border = FileManager.cfg.getString("Walls.OnSpawnPlotRemove.Border");
+        String wall = FileManager.cfg.getString("Walls.OnSpawnPlotRemove.Wall");
+        if(Material.valueOf(border) != null){
+          controller.setBorder(p, Material.valueOf(border));
+        }
+        if(Material.valueOf(wall) != null){
+          controller.setWall(p, Material.valueOf(wall));
+        }
+      }
+    }
   }
 
 }

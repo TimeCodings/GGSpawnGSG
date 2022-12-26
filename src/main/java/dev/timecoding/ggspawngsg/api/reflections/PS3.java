@@ -3,6 +3,7 @@ package dev.timecoding.ggspawngsg.api.reflections;
 import com.intellectualcrafters.plot.api.PlotAPI;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
@@ -30,6 +31,20 @@ public class PS3 {
     public void setPlotOwner(String uuid){
         if(playerOnPlot()){
             plot.setOwner(UUID.fromString(uuid));
+        }
+    }
+
+    public void setBorder(Material material){
+        if(playerOnPlot()){
+            Plot p = getPlot();
+            p.setComponent("border", material.name());
+        }
+    }
+
+    public void setWall(Material material){
+        if(playerOnPlot()){
+            Plot p = getPlot();
+            p.setComponent("wall", material.name());
         }
     }
 

@@ -5,6 +5,9 @@ import java.util.List;
 import dev.timecoding.ggspawngsg.api.Metrics;
 import dev.timecoding.ggspawngsg.api.PlotWrapper;
 import dev.timecoding.ggspawngsg.api.UpdateChecker;
+import dev.timecoding.ggspawngsg.api.reflections.wall.PS3E;
+import dev.timecoding.ggspawngsg.api.reflections.wall.PS4E;
+import dev.timecoding.ggspawngsg.api.reflections.wall.PS6E;
 import dev.timecoding.ggspawngsg.command.SpawnPlotCommand;
 import dev.timecoding.ggspawngsg.command.completer.SpawnPlotTabber;
 import dev.timecoding.ggspawngsg.file.FileManager;
@@ -37,8 +40,8 @@ public class GGSpawnGSG extends JavaPlugin {
     this.commandsender = Bukkit.getConsoleSender();
     this.updateChecker = new UpdateChecker(this, resourceId);
     boolean disable = false;
-
-    if (getServer().getPluginManager().getPlugin("PlotSquared") == null) {
+    PluginManager pluginManager = this.getServer().getPluginManager();
+    if (pluginManager.getPlugin("PlotSquared") == null) {
       this.commandsender.sendMessage("");
       this.commandsender.sendMessage("");
       this.commandsender.sendMessage("§cEs wurde keine ladbare Version von PlotSquared auf diesem Server gefunden! Bitte installiere zuerst PlotSquared um dieses Addon nutzen zu können!");
@@ -66,8 +69,21 @@ public class GGSpawnGSG extends JavaPlugin {
       spawnplot.setExecutor(new SpawnPlotCommand(this));
       spawnplot.setTabCompleter(new SpawnPlotTabber());
 
-      PluginManager pluginManager = this.getServer().getPluginManager();
       pluginManager.registerEvents(new RedeemListener(this), this);
+      switch(plotWrapper.getPlotSquaredVersion()){
+        case V3:
+          pluginManager.registerEvents(new PS3E(this), this);
+          this.commandsender.sendMessage("§7Registered PlotSquared v3 Listener!");
+          break;
+        case V4:
+          pluginManager.registerEvents(new PS4E(this), this);
+          this.commandsender.sendMessage("§7Registered PlotSquared v4 Listener!");
+          break;
+        case V6:
+          pluginManager.registerEvents(new PS6E(this), this);
+          this.commandsender.sendMessage("§7Registered PlotSquared v6 Listener!");
+          break;
+      }
 
       FileManager.setup(this);
 

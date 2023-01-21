@@ -1,6 +1,7 @@
 package dev.timecoding.ggspawngsg.api.reflections;
 
 import com.intellectualcrafters.plot.api.PlotAPI;
+import com.intellectualcrafters.plot.object.Location;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import org.bukkit.Material;
@@ -15,7 +16,7 @@ public class PS3 {
     private Plot plot = null;
 
     public PS3(Player p){
-        plotPlayer = api.wrapPlayer(UUID.fromString(p.getUniqueId().toString()));
+        plotPlayer = api.wrapPlayer(p.getName());
         if(plotPlayer.getCurrentPlot() != null){
             plot = plotPlayer.getCurrentPlot();
         }
@@ -56,7 +57,7 @@ public class PS3 {
         return plot;
     }
 
-    public PlotAPI getApi() {
+    public Object getApi() {
         return api;
     }
 

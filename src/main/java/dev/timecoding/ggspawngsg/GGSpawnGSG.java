@@ -40,6 +40,7 @@ public class GGSpawnGSG extends JavaPlugin {
     this.commandsender = Bukkit.getConsoleSender();
     this.updateChecker = new UpdateChecker(this, resourceId);
     boolean disable = false;
+
     PluginManager pluginManager = this.getServer().getPluginManager();
     if (pluginManager.getPlugin("PlotSquared") == null) {
       this.commandsender.sendMessage("");

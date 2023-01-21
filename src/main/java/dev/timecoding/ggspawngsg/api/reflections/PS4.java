@@ -1,6 +1,7 @@
 package dev.timecoding.ggspawngsg.api.reflections;
 
 import com.github.intellectualsites.plotsquared.api.PlotAPI;
+import com.github.intellectualsites.plotsquared.plot.object.Location;
 import com.github.intellectualsites.plotsquared.plot.object.Plot;
 import com.github.intellectualsites.plotsquared.plot.object.PlotPlayer;
 import org.bukkit.Material;
@@ -15,7 +16,7 @@ public class PS4 {
     private Plot plot = null;
 
     public PS4(Player p){
-        plotPlayer = api.wrapPlayer(UUID.fromString(p.getUniqueId().toString()));
+        plotPlayer = api.wrapPlayer(p.getName());
         if(plotPlayer.getCurrentPlot() != null){
             plot = plotPlayer.getCurrentPlot();
         }
@@ -56,7 +57,7 @@ public class PS4 {
         return plot;
     }
 
-    public PlotAPI getApi() {
+    public Object getApi() {
         return api;
     }
 

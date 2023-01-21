@@ -1,5 +1,6 @@
 name: GGSpawnGSG
-version: 1.4.1
+version: 1.4.2
+api-version: 1.13
 main: dev.timecoding.ggspawngsg.GGSpawnGSG
 website: timecoding.de
 

@@ -2,12 +2,12 @@ package dev.timecoding.ggspawngsg.api.reflections;
 
 import com.plotsquared.core.PlotAPI;
 import com.plotsquared.core.configuration.ConfigurationUtil;
+import com.plotsquared.core.location.Location;
 import com.plotsquared.core.player.PlotPlayer;
 import com.plotsquared.core.plot.BlockBucket;
 import com.plotsquared.core.plot.Plot;
 import com.plotsquared.core.util.PatternUtil;
 import com.sk89q.worldedit.function.pattern.Pattern;
-import de.nononitas.plotborder.Gui;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -20,7 +20,7 @@ public class PS6 {
     private Plot plot = null;
 
     public PS6(Player p){
-        plotPlayer = api.wrapPlayer(UUID.fromString(p.getUniqueId().toString()));
+        plotPlayer = api.wrapPlayer(p.getName());
         if(plotPlayer.getCurrentPlot() != null){
             plot = plotPlayer.getCurrentPlot();
         }
